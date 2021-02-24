@@ -26,7 +26,7 @@ public slots:
     virtual void updateButtons() = 0;
 
 signals:
-    void notify(const int id) const;
+    void notify(const unsigned int id) const;
     void message(const QString &message);
 };
 

@@ -1,2 +1,2 @@
 # QGUITools
-Some tools for QT GUI developement
+Some tools for QT GUI development

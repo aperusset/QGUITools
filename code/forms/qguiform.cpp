@@ -53,6 +53,10 @@ void QGUIForm::hide() {
     this->getWidget()->hide();
 }
 
+void QGUIForm::addTo(QFormLayout &formLayout) {
+    formLayout.addRow(this->label, this->getWidget());
+}
+
 void QGUIForm::changed(const QString &value) {
     emit hasChanged(value);
 }

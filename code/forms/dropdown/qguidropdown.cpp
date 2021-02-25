@@ -1,27 +1,24 @@
-#include "qguiselect.h"
+#include "qguidropdown.h"
 
-QGUISelect::QGUISelect(const QString &labelText, QWidget *parent) :
+QGUIDropDown::QGUIDropDown(const QString &labelText, QWidget *parent) :
     QGUIForm(labelText, parent), comboBox(new QComboBox(this)) {
+    this->comboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
     connect(this->comboBox, SIGNAL(currentIndexChanged(QString&)), this, SLOT(changed(QString&)));
     connect(this->comboBox, SIGNAL(activated(QString&)), this, SLOT(userHasChanged(QString&)));
 }
 
-QGUISelect::~QGUISelect() {
+QGUIDropDown::~QGUIDropDown() {
     delete this->comboBox;
 }
 
-void QGUISelect::setData(const QVariant &data) {
+void QGUIDropDown::setData(const QVariant &data) {
     const int index = this->comboBox->findData(data);
     if (index != INVALID_SELECTED_INDEX) {
         this->comboBox->setCurrentIndex(index);
     }
 }
 
-void QGUISelect::adjustToContent() {
-    this->comboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
-}
-
-void QGUISelect::populate() {
+void QGUIDropDown::populate() {
     auto const currentData = this->getData<>();
     this->comboBox->clear();
     for (auto const &element : this->datas()) {
@@ -31,6 +28,6 @@ void QGUISelect::populate() {
     this->comboBox->model()->sort(0);
 }
 
-auto QGUISelect::getWidget() const -> QWidget* {
+auto QGUIDropDown::getWidget() const -> QWidget* {
     return this->comboBox;
 }

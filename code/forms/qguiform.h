@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QFormLayout>
 
 class QGUIForm : public QWidget {
 
@@ -24,6 +25,7 @@ public:
     void focus() const;
     void show();
     void hide();
+    void addTo(QFormLayout&);
 
     virtual auto getWidget() const -> QWidget* = 0;
 

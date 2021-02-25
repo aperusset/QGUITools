@@ -9,20 +9,22 @@ QT += core gui widgets
 DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-    forms/qguidecimalselect.cpp \
+    forms/dropdown/qguidecimaldropdown.cpp \
+    forms/dropdown/qguidropdown.cpp \
+    forms/dropdown/qguiintdropdown.cpp \
+    forms/text/qguitext.cpp \
     forms/qguiform.cpp \
-    forms/qguiintselect.cpp \
-    forms/qguiselect.cpp \
     qguicontainer.cpp \
     tabs/qguitab.cpp \
     windows/qguiwindow.cpp
 
 HEADERS += \
-    forms/qguidecimalselect.h \
+    forms/dropdown/qguidecimaldropdown.h \
+    forms/dropdown/qguidropdown.h \
+    forms/dropdown/qguiintdropdown.h \
+    forms/dropdown/qguiintervaldropdown.h \
+    forms/text/qguitext.h \
     forms/qguiform.h \
-    forms/qguiintervalselect.h \
-    forms/qguiintselect.h \
-    forms/qguiselect.h \
     qguicontainer.h \
     tabs/qguitab.h \
     windows/qguiwindow.h

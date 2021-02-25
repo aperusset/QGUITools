@@ -14,7 +14,7 @@ class QGUIForm : public QWidget {
 
 public:
     QGUIForm(const QString &labelText, QWidget *parent);
-    virtual ~QGUIForm() {}
+    ~QGUIForm();
     auto getLabel() const -> QLabel*;
     void setLabelText(const QString&);
     void enable();
@@ -22,6 +22,8 @@ public:
     void setEnabled(const bool enabled);
     auto isEnabled() const -> bool;
     void focus() const;
+    void show();
+    void hide();
 
     virtual auto getWidget() const -> QWidget* = 0;
 

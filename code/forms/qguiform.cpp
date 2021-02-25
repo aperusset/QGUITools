@@ -3,8 +3,12 @@
 const QString LABEL_TEXT_SUFFIX = ":";
 
 QGUIForm::QGUIForm(const QString &labelText, QWidget *parent) :
-    QWidget(parent), label(new QLabel(parent)){
+    QWidget(parent), label(new QLabel(this)){
     this->setLabelText(labelText);
+}
+
+QGUIForm::~QGUIForm() {
+    delete this->label;
 }
 
 auto QGUIForm::getLabel() const -> QLabel* {
@@ -37,6 +41,16 @@ auto QGUIForm::isEnabled() const -> bool {
 
 void QGUIForm::focus() const {
     this->getWidget()->setFocus();
+}
+
+void QGUIForm::show() {
+    this->label->show();
+    this->getWidget()->show();
+}
+
+void QGUIForm::hide() {
+    this->label->hide();
+    this->getWidget()->hide();
 }
 
 void QGUIForm::changed(const QString &value) {

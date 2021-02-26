@@ -70,6 +70,15 @@ void QGUIFormTest::setEnabledToFalseShouldDisable() {
     QVERIFY(!this->testForm->isEnabled());
 }
 
+void QGUIFormTest::focusShouldGiveFocusToWidget() {
+
+    // When
+    this->testForm->focus();
+
+    // Then
+    QVERIFY(this->testForm->getWidget()->hasFocus());
+}
+
 void QGUIFormTest::addToShouldAddLabelAndWidgetToFormLayout() {
 
     // Given

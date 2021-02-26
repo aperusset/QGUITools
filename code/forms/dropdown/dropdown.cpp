@@ -21,7 +21,7 @@ void DropDown::setData(const QVariant &data) {
 void DropDown::populate() {
     auto const currentData = this->getData<>();
     this->comboBox->clear();
-    for (auto const &element : this->datas()) {
+    for (auto const &element : this->data()) {
         this->comboBox->addItem(element.second, element.first);
     }
     this->setData(currentData);

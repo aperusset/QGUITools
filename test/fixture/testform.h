@@ -8,13 +8,13 @@ class TestForm : public QGUIForm {
     QWidget * const widget;
 
 public:
-    TestForm(const QString &labelText) : QGUIForm(labelText, nullptr), widget(new QWidget()) {}
+    TestForm(const QString &labelText) : QGUIForm(labelText, nullptr), widget(new QWidget(this)) {}
 
     ~TestForm() {
         delete this->widget;
     }
 
-    auto getWidget() const -> QWidget* {
+    auto getWidget() const -> QWidget* override {
         return this->widget;
     }
 };

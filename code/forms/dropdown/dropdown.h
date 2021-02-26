@@ -23,7 +23,7 @@ public:
     virtual void populate();
     auto getWidget() const -> QWidget* override;
 
-    virtual auto datas() -> std::map<QVariant, QString> = 0;
+    virtual auto data() -> std::map<QVariant, QString> = 0;
 
     static const int INVALID_SELECTED_INDEX = -1;
 };

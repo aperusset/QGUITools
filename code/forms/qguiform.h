@@ -21,8 +21,6 @@ public:
     void setEnabled(const bool);
     auto isEnabled() const -> bool;
     void focus() const;
-    void show();
-    void hide();
     void addTo(QFormLayout&);
 
     virtual auto getWidget() const -> QWidget* = 0;

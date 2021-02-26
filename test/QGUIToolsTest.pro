@@ -10,11 +10,14 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 HEADERS += \
+    fixture/testdropdown.h \
     fixture/testform.h \
+    forms/dropdown/dropdowntest.h \
     forms/dropdown/intervaldropdowntest.h \
     forms/qguiformtest.h
 
 SOURCES += \
+    forms/dropdown/dropdowntest.cpp \
     forms/dropdown/intervaldropdowntest.cpp \
     forms/qguiformtest.cpp \
     main.cpp

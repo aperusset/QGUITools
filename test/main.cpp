@@ -4,13 +4,15 @@
 #include <QObject>
 #include <QTest>
 #include "forms/qguiformtest.h"
+#include "forms/dropdown/dropdowntest.h"
 
 auto main(int argc, char *argv[]) -> int {
 
     QApplication application(argc, argv);
 
     auto tests = std::list<std::shared_ptr<QObject>>{
-        std::make_shared<QGUIFormTest>()
+        std::make_shared<QGUIFormTest>(),
+        std::make_shared<DropDownTest>()
     };
 
     try {

@@ -16,6 +16,7 @@ class QGUIFormTest : public QObject {
 private slots:
     void init() {
         this->testForm = new TestForm(DEFAULT_LABEL_TEXT);
+        QApplication::setActiveWindow(this->testForm);
     }
 
     void getLabelShouldReturnLabelWithDefaultTextAndSuffix();
@@ -24,11 +25,10 @@ private slots:
     void disableShouldDisableLabelAndWidget();
     void setEnabledToTrueShouldEnable();
     void setEnabledToFalseShouldDisable();
+    void focusShouldGiveFocusToWidget();
     void addToShouldAddLabelAndWidgetToFormLayout();
     void changedShouldEmitHasChangedWithValue();
     void changedByUserShouldEmitUserHasChangedWithValue();
-
-    // TODO how to test focus/show/hide as there is no visible QWidget ?
 
     void cleanup() {
         delete this->testForm;

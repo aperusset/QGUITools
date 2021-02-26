@@ -25,7 +25,7 @@ public:
         return DropDown::getData<T>();
     }
 
-    auto datas() -> std::map<QVariant, QString> override {
+    auto data() -> std::map<QVariant, QString> override {
         std::map<QVariant, QString> values;
         for (auto value = this->min; value <= this->max; value += this->increment) {
             values.insert(std::make_pair(buildValue(value), buildDisplayValue(value)));

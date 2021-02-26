@@ -43,16 +43,6 @@ void QGUIForm::focus() const {
     this->getWidget()->setFocus();
 }
 
-void QGUIForm::show() {
-    this->label->show();
-    this->getWidget()->show();
-}
-
-void QGUIForm::hide() {
-    this->label->hide();
-    this->getWidget()->hide();
-}
-
 void QGUIForm::addTo(QFormLayout &formLayout) {
     formLayout.addRow(this->label, this->getWidget());
 }

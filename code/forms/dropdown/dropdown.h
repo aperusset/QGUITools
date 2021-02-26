@@ -1,5 +1,5 @@
-#ifndef QGUIDROPDOWN_H
-#define QGUIDROPDOWN_H
+#ifndef DROPDOWN_H
+#define DROPDOWN_H
 
 #include "forms/qguiform.h"
 #include <QComboBox>
@@ -7,13 +7,13 @@
 #include <QString>
 #include <map>
 
-class QGUIDropDown : public QGUIForm {
+class DropDown : public QGUIForm {
 
     QComboBox *comboBox;
 
 public:
-    QGUIDropDown(const QString &labelText, QWidget *parent);
-    ~QGUIDropDown();
+    DropDown(const QString &labelText, QWidget *parent);
+    ~DropDown();
 
     template<typename T = QVariant>
     auto getData() const -> T {
@@ -28,4 +28,4 @@ public:
     static const int INVALID_SELECTED_INDEX = -1;
 };
 
-#endif // QGUIDROPDOWN_H
+#endif // DROPDOWN_H

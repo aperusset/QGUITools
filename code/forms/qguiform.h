@@ -11,8 +11,6 @@ class QGUIForm : public QWidget {
 
     QLabel *label;
 
-    static const QString LABEL_TEXT_SUFFIX;
-
 public:
     QGUIForm(const QString &labelText, QWidget *parent);
     ~QGUIForm();
@@ -20,7 +18,7 @@ public:
     void setLabelText(const QString&);
     void enable();
     void disable();
-    void setEnabled(const bool enabled);
+    void setEnabled(const bool);
     auto isEnabled() const -> bool;
     void focus() const;
     void show();
@@ -28,6 +26,8 @@ public:
     void addTo(QFormLayout&);
 
     virtual auto getWidget() const -> QWidget* = 0;
+
+    static const QString LABEL_TEXT_SUFFIX;
 
 public slots:
     void changed(const QString &value);

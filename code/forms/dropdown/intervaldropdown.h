@@ -1,18 +1,18 @@
-#ifndef QGUIINTERVALDROPDOWN_H
-#define QGUIINTERVALDROPDOWN_H
+#ifndef INTERVALDROPDOWN_H
+#define INTERVALDROPDOWN_H
 
-#include "qguidropdown.h"
+#include "dropdown.h"
 
 template<typename T>
-class QGUIIntervalDropDown : public QGUIDropDown {
+class IntervalDropDown : public DropDown {
 
     const T min;
     const T max;
     const T increment;
 
 public:
-    QGUIIntervalDropDown(const QString &labelText, T min, T max, T increment, QWidget *parent) :
-        QGUIDropDown(labelText, parent), min(std::move(min)), max(std::move(max)), increment(std::move(increment)) {
+    IntervalDropDown(const QString &labelText, T min, T max, T increment, QWidget *parent) :
+        DropDown(labelText, parent), min(std::move(min)), max(std::move(max)), increment(std::move(increment)) {
         if (this->min > this->max) {
             throw std::string("min must be lower or equals to max.");
         }
@@ -22,7 +22,7 @@ public:
     }
 
     auto getData() -> T {
-        return QGUIDropDown::getData<T>();
+        return DropDown::getData<T>();
     }
 
     auto datas() -> std::map<QVariant, QString> override {
@@ -40,4 +40,4 @@ public:
     virtual auto buildDisplayValue(const T value) const -> QString = 0;
 };
 
-#endif // QGUIINTERVALDROPDOWN_H
+#endif // INTERVALDROPDOWN_H

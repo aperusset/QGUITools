@@ -1,4 +1,5 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    code/QGUITools.pro
+    code/QGUITools.pro \
+    test/QGUIToolsTest.pro

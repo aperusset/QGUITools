@@ -4,27 +4,28 @@ DEFINES += QGUITOOLS_LIBRARY
 QMAKE_CXXFLAGS += -std=c++0x -std=gnu++11 -Wall
 CONFIG += c++11
 
-QT += core gui widgets
+QT -= gui
+QT += core widgets
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-    forms/dropdown/qguidecimaldropdown.cpp \
-    forms/dropdown/qguidropdown.cpp \
-    forms/dropdown/qguiintdropdown.cpp \
-    forms/text/qguitext.cpp \
+    forms/dropdown/decimaldropdown.cpp \
+    forms/dropdown/dropdown.cpp \
+    forms/dropdown/integerdropdown.cpp \
     forms/qguiform.cpp \
+    forms/text/text.cpp \
     qguicontainer.cpp \
     tabs/qguitab.cpp \
     windows/qguiwindow.cpp
 
 HEADERS += \
-    forms/dropdown/qguidecimaldropdown.h \
-    forms/dropdown/qguidropdown.h \
-    forms/dropdown/qguiintdropdown.h \
-    forms/dropdown/qguiintervaldropdown.h \
-    forms/text/qguitext.h \
+    forms/dropdown/decimaldropdown.h \
+    forms/dropdown/dropdown.h \
+    forms/dropdown/integerdropdown.h \
+    forms/dropdown/intervaldropdown.h \
     forms/qguiform.h \
+    forms/text/text.h \
     qguicontainer.h \
     tabs/qguitab.h \
     windows/qguiwindow.h

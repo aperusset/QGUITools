@@ -1,6 +1,6 @@
 #include "qguiform.h"
 
-const QString LABEL_TEXT_SUFFIX = ":";
+const QString QGUIForm::LABEL_TEXT_SUFFIX = " : ";
 
 QGUIForm::QGUIForm(const QString &labelText, QWidget *parent) :
     QWidget(parent), label(new QLabel(this)){

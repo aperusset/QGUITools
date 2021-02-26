@@ -27,5 +27,4 @@ void QGUITab::setModified(const bool modified) {
 
 void QGUITab::reset() {
     this->setModified(false);
-    QGUIContainer::reset();
 }

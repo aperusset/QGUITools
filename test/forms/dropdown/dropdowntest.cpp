@@ -1,4 +1,5 @@
 #include "dropdowntest.h"
+#include <QSignalSpy>
 
 void DropDownTest::getWidgetShouldReturnAComboBox() {
 
@@ -54,17 +55,21 @@ void DropDownTest::setDataShouldDoNothingIfDataIsNotKnown() {
     QCOMPARE(this->testDropDown->getData<int>(), selectedValue);
 }
 
-void DropDownTest::setDataShouldUpdateSelectedData() {
+void DropDownTest::setDataShouldUpdateSelectedDataAndEmitHasChangedSignal() {
 
     // Given
     auto const selectedValue = 2;
     this->testDropDown->setRealData({{1, "test"}, {selectedValue, "test2"}});
+    QSignalSpy spyHasChanged(this->testDropDown, SIGNAL(hasChanged()));
+    QSignalSpy spyUserHasChanged(this->testDropDown, SIGNAL(userHasChanged()));
 
     // When
     this->testDropDown->setData(selectedValue);
 
     // Then
     QCOMPARE(this->testDropDown->getData<int>(), selectedValue);
+    QCOMPARE(spyHasChanged.count(), 1);
+    QCOMPARE(spyUserHasChanged.count(), 0);
 }
 
 void DropDownTest::populateShouldNotResetSelectedDataIfAlwaysPresent() {

@@ -27,13 +27,9 @@ public:
 
     static const QString LABEL_TEXT_SUFFIX;
 
-public slots:
-    void changed(const QString &value);
-    void changedByUser(const QString &value);
-
 signals:
-    void hasChanged(const QString &value);
-    void userHasChanged(const QString &value);
+    void hasChanged();
+    void userHasChanged();
 };
 
 #endif // QGUIFORM_H

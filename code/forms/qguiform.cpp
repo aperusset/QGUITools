@@ -46,11 +46,3 @@ void QGUIForm::focus() const {
 void QGUIForm::addTo(QFormLayout &formLayout) {
     formLayout.addRow(this->label, this->getWidget());
 }
-
-void QGUIForm::changed(const QString &value) {
-    emit hasChanged(value);
-}
-
-void QGUIForm::changedByUser(const QString &value) {
-    emit userHasChanged(value);
-}

@@ -27,8 +27,6 @@ private slots:
     void setEnabledToFalseShouldDisable();
     void focusShouldGiveFocusToWidget();
     void addToShouldAddLabelAndWidgetToFormLayout();
-    void changedShouldEmitHasChangedWithValue();
-    void changedByUserShouldEmitUserHasChangedWithValue();
 
     void cleanup() {
         delete this->testForm;

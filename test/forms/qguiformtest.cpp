@@ -1,6 +1,5 @@
 #include "qguiformtest.h"
 #include <QFormLayout>
-#include <QSignalSpy>
 
 const QString QGUIFormTest::DEFAULT_LABEL_TEXT = "labelName";
 
@@ -90,33 +89,4 @@ void QGUIFormTest::addToShouldAddLabelAndWidgetToFormLayout() {
     // Then
     QCOMPARE(layout.rowCount(), 1);
     QCOMPARE(layout.count(), 2);
-}
-
-void QGUIFormTest::changedShouldEmitHasChangedWithValue() {
-
-    // Given
-    const auto *const emittedChange = "change";
-    QSignalSpy spy(this->testForm, SIGNAL(hasChanged(const QString&)));
-
-    // When
-    this->testForm->changed(emittedChange);
-
-    // Then
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().first(), emittedChange);
-
-}
-
-void QGUIFormTest::changedByUserShouldEmitUserHasChangedWithValue() {
-
-    // Given
-    const auto *const emittedChange = "change";
-    QSignalSpy spy(this->testForm, SIGNAL(userHasChanged(const QString&)));
-
-    // When
-    this->testForm->changedByUser(emittedChange);
-
-    // Then
-    QCOMPARE(spy.count(), 1);
-    QCOMPARE(spy.takeFirst().first(), emittedChange);
 }

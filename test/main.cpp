@@ -5,6 +5,7 @@
 #include <QTest>
 #include "forms/qguiformtest.h"
 #include "forms/dropdown/dropdowntest.h"
+#include "forms/dropdown/intervaldropdowntest.h"
 
 auto main(int argc, char *argv[]) -> int {
 
@@ -12,7 +13,8 @@ auto main(int argc, char *argv[]) -> int {
 
     auto tests = std::list<std::shared_ptr<QObject>>{
         std::make_shared<QGUIFormTest>(),
-        std::make_shared<DropDownTest>()
+        std::make_shared<DropDownTest>(),
+        std::make_shared<IntervalDropDownTest>()
     };
 
     try {

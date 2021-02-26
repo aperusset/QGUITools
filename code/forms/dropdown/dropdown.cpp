@@ -3,8 +3,7 @@
 DropDown::DropDown(const QString &labelText, QWidget *parent) :
     QGUIForm(labelText, parent), comboBox(new QComboBox(this)) {
     this->comboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
-    connect(this->comboBox, SIGNAL(currentIndexChanged(QString&)), this, SLOT(changed(QString&)));
-    connect(this->comboBox, SIGNAL(activated(QString&)), this, SLOT(userHasChanged(QString&)));
+    connect(this->comboBox, SIGNAL(currentIndexChanged(int)), this, SIGNAL(hasChanged()));
 }
 
 DropDown::~DropDown() {

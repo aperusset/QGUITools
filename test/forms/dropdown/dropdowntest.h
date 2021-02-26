@@ -8,17 +8,21 @@ class DropDownTest : public QObject {
 
     Q_OBJECT
 
-    TestDropDown *testDropDown = new TestDropDown("Drop Down");
+    TestDropDown *testDropDown = nullptr;
 
 private slots:
     void getWidgetShouldReturnAComboBox();
     void getDataShouldReturnCurrentData();
     void setDataShouldDoNothingIfDataIsInvalid();
     void setDataShouldDoNothingIfDataIsNotKnown();
-    void setDataShouldUpdateSelectedData();
+    void setDataShouldUpdateSelectedDataAndEmitHasChangedSignal();
     void populateShouldNotResetSelectedDataIfAlwaysPresent();
     void populateShouldResetSelectedDataToFirstIfSelectedIsInvalid();
     void populateShouldSortDataBasedOnValue();
+
+    void initTestCase() {
+        this->testDropDown = new TestDropDown("Drop Down");
+    }
 
     void cleanup() {
         this->testDropDown->setRealData({});

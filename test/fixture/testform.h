@@ -8,7 +8,7 @@ class TestForm : public QGUIForm {
     QWidget * const widget;
 
 public:
-    TestForm(const QString &labelText) : QGUIForm(labelText, nullptr), widget(new QWidget(this)) {}
+    explicit TestForm(const QString &labelText) : QGUIForm(labelText, nullptr), widget(new QWidget(this)) {}
 
     ~TestForm() {
         delete this->widget;

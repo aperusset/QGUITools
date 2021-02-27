@@ -1,5 +1,8 @@
 #include "qguitab.h"
 
+QGUITab::QGUITab(const unsigned int id, const QString &title, QWidget *parent) :
+    QGUITab(id, UNIQUE_INSTANCE_ID, title, parent) {}
+
 QGUITab::QGUITab(const unsigned int id, const unsigned int instanceId, QString title, QWidget *parent):
     QGUIContainer(id, parent), title(std::move(title)), instanceId(instanceId), modified(false) {
 

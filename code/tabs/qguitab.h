@@ -12,6 +12,7 @@ class QGUITab : public QGUIContainer {
     bool modified;
 
 public:
+    QGUITab(const unsigned int id, const QString &title, QWidget *parent);
     QGUITab(const unsigned int id, const unsigned int instanceId, QString title, QWidget *parent);
     auto getTitle() const -> QString override;
     void setTitle(const QString &title) override;
@@ -26,8 +27,8 @@ public:
     static const unsigned int UNIQUE_INSTANCE_ID = 0;
 
 signals:
-    void setTitle(QGUITab&, const QString &title);
-    void close(QGUITab&);
+    void changeTitle(QGUITab&, const QString &title);
+    void closeTab(QGUITab&);
 };
 
 #endif // QGUITAB_H

@@ -58,10 +58,10 @@ void DropDownTest::setDataShouldDoNothingIfDataIsNotKnown() {
 void DropDownTest::setDataShouldUpdateSelectedDataAndEmitHasChangedSignal() {
 
     // Given
-    auto const selectedValue = 2;
-    this->testDropDown->setRealData({{1, "test"}, {selectedValue, "test2"}});
     QSignalSpy spyHasChanged(this->testDropDown, SIGNAL(hasChanged()));
     QSignalSpy spyUserHasChanged(this->testDropDown, SIGNAL(userHasChanged()));
+    auto const selectedValue = 2;
+    this->testDropDown->setRealData({{1, "test"}, {selectedValue, "test2"}});
 
     // When
     this->testDropDown->setData(selectedValue);

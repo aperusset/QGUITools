@@ -8,16 +8,16 @@ auto QGUIContainer::getId() const -> unsigned int {
     return this->id;
 }
 
-void QGUIContainer::wait() const {
+void QGUIContainer::wait() {
     QApplication::setOverrideCursor(Qt::WaitCursor);
 }
 
-void QGUIContainer::finished() const {
+void QGUIContainer::finished() {
     QApplication::restoreOverrideCursor();
 }
 
-void QGUIContainer::notify() const {
-    emit notify(this->id);
+void QGUIContainer::notify() {
+    emit hasChanged(this->id);
 }
 
 void QGUIContainer::update() {

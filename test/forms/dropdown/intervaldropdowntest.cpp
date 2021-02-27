@@ -36,5 +36,5 @@ void IntervalDropDownTest::shouldBuildValue() {
     auto const builtValue = this->dropDown->buildValue(value);
 
     // Then
-    QCOMPARE(builtValue.value<int>(), value);
+    QCOMPARE(builtValue.value<unsigned int>(), value);
 }

@@ -27,7 +27,7 @@ Text::Text(const QString &labelText, const bool mandatory, const QString &defaul
     connect(this->lineEdit, SIGNAL(textChanged(QString&)), this, SLOT(hasChanged(QString&)));
     connect(this->lineEdit, SIGNAL(textEdited(QString&)), this, SLOT(userHasChanged(QString&)));
 }
-const QString DEFAULT_REGEXP;
+
 Text::~Text() {
     delete this->lineEdit;
     delete this->validator;

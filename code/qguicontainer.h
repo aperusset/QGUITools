@@ -16,9 +16,9 @@ public:
     virtual auto getTitle() const -> QString = 0;
 
 public slots:
-    virtual void wait() const;
-    virtual void finished() const;
-    virtual void notify() const;
+    virtual void wait();
+    virtual void finished();
+    virtual void notify();
     virtual void update();
 
     virtual void setTitle(const QString&) = 0;
@@ -26,8 +26,8 @@ public slots:
     virtual void updateButtons() = 0;
 
 signals:
-    void notify(const unsigned int id) const;
-    void message(const QString &message);
+    void hasChanged(const unsigned int);
+    void newMessage(const QString&);
 };
 
 #endif // QGUICONTAINER_H

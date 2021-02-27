@@ -10,17 +10,20 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 HEADERS += \
+    fixture/testcontainer.h \
     fixture/testdropdown.h \
     fixture/testform.h \
     forms/dropdown/dropdowntest.h \
     forms/dropdown/intervaldropdowntest.h \
-    forms/qguiformtest.h
+    forms/qguiformtest.h \
+    qguicontainertest.h
 
 SOURCES += \
     forms/dropdown/dropdowntest.cpp \
     forms/dropdown/intervaldropdowntest.cpp \
     forms/qguiformtest.cpp \
-    main.cpp
+    main.cpp \
+    qguicontainertest.cpp
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../code/release/ -lQGUITools
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../code/debug/ -lQGUITools

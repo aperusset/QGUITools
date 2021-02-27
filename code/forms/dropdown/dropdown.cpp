@@ -18,13 +18,15 @@ void DropDown::setData(const QVariant &data) {
 }
 
 void DropDown::populate() {
+    this->comboBox->blockSignals(true);
     auto const currentData = this->getData<>();
     this->comboBox->clear();
     for (auto const &element : this->data()) {
         this->comboBox->addItem(element.second, element.first);
     }
-    this->setData(currentData);
     this->comboBox->model()->sort(0);
+    this->setData(currentData);
+    this->comboBox->blockSignals(false);
 }
 
 auto DropDown::getWidget() const -> QWidget* {

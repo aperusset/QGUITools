@@ -1,17 +1,16 @@
 #ifndef DROPDOWN_H
 #define DROPDOWN_H
 
-#include "forms/qguiform.h"
 #include <QComboBox>
 #include <QVariant>
 #include <QString>
 #include <map>
+#include "forms/qguiform.h"
 
 class DropDown : public QGUIForm {
-
     QComboBox *comboBox;
 
-public:
+ public:
     DropDown(const QString &labelText, QWidget *parent);
     ~DropDown();
 
@@ -28,4 +27,4 @@ public:
     static const int INVALID_SELECTED_INDEX = -1;
 };
 
-#endif // DROPDOWN_H
+#endif  // DROPDOWN_H

@@ -7,6 +7,12 @@
 #include "forms/qguiformtest.h"
 #include "forms/dropdown/dropdowntest.h"
 #include "forms/dropdown/intervaldropdowntest.h"
+#include "forms/dropdown/integerdropdowntest.h"
+#include "forms/dropdown/decimaldropdowntest.h"
+#include "forms/validator/validatortest.h"
+#include "forms/validator/decimalvalidatortest.h"
+#include "forms/validator/integervalidatortest.h"
+#include "forms/text/singlelinetexttest.h"
 
 auto main(int argc, char *argv[]) -> int {
 
@@ -16,7 +22,13 @@ auto main(int argc, char *argv[]) -> int {
         std::make_shared<QGUIContainerTest>(),
         std::make_shared<QGUIFormTest>(),
         std::make_shared<DropDownTest>(),
-        std::make_shared<IntervalDropDownTest>()
+        std::make_shared<IntervalDropDownTest>(),
+        std::make_shared<IntegerDropDownTest>(),
+        std::make_shared<DecimalDropDownTest>(),
+        std::make_shared<ValidatorTest>(),
+        std::make_shared<DecimalValidatorTest>(),
+        std::make_shared<IntegerValidatorTest>(),
+        std::make_shared<SingleLineTextTest>()
     };
 
     try {

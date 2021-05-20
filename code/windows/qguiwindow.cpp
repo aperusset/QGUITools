@@ -1,6 +1,7 @@
-#include "qguiwindow.h"
+#include "windows/qguiwindow.h"
 
-QGUIWindow::QGUIWindow(const unsigned int id, const QString &title, QWidget *parent) :
+QGUIWindow::QGUIWindow(const unsigned int id, const QString &title,
+                       QWidget *parent) :
     QGUIContainer(id, parent), dialog(new QDialog(this)) {
     this->dialog->setWindowTitle(title);
 }

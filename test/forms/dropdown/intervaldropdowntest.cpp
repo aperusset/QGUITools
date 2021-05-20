@@ -9,7 +9,7 @@ void IntervalDropDownTest::shouldFailIfMinGreaterThanMax() {
     );
 }
 
-void IntervalDropDownTest::shouldFailtIfMinDoesNotIncrease() {
+void IntervalDropDownTest::shouldFailtIfIntervalDoesNotIncrease() {
 
     // Given / When / Then
     QVERIFY_EXCEPTION_THROWN(
@@ -36,5 +36,5 @@ void IntervalDropDownTest::shouldBuildValue() {
     auto const builtValue = this->dropDown->buildValue(value);
 
     // Then
-    QCOMPARE(builtValue.value<unsigned int>(), value);
+    QCOMPARE(builtValue.value<typename std::decay<decltype(value)>::type>(), value);
 }

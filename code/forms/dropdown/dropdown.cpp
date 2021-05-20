@@ -1,9 +1,10 @@
-#include "dropdown.h"
+#include "forms/dropdown/dropdown.h"
 
 DropDown::DropDown(const QString &labelText, QWidget *parent) :
     QGUIForm(labelText, parent), comboBox(new QComboBox(this)) {
     this->comboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
-    connect(this->comboBox, SIGNAL(currentIndexChanged(int)), this, SIGNAL(hasChanged()));
+    connect(this->comboBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            this, &QGUIForm::hasChanged);
 }
 
 DropDown::~DropDown() {

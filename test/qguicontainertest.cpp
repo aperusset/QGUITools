@@ -16,10 +16,11 @@ void QGUIContainerTest::notifyShouldEmitHasChangedWithDefinedId() {
 
     // When
     this->testContainer->notify();
+    auto const spied = spyHasChanged.first();
 
     // Then
     QCOMPARE(spyHasChanged.count(), 1);
-    QCOMPARE(spyHasChanged.takeFirst().first().toUInt(), TestContainer::DEFAULT_ID);
+    QCOMPARE(spied.first().toUInt(), TestContainer::DEFAULT_ID);
 }
 
 void QGUIContainerTest::waitShouldActiveWaitCursor() {

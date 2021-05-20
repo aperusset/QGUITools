@@ -1,11 +1,10 @@
-#ifndef INTERVALDROPDOWNTEST_H
-#define INTERVALDROPDOWNTEST_H
+#ifndef INTEGERDROPDOWNTEST_H
+#define INTEGERDROPDOWNTEST_H
 
 #include <QtTest/QtTest>
-#include "forms/dropdown/intervaldropdown.h"
 #include "forms/dropdown/integerdropdown.h"
 
-class IntervalDropDownTest : public QObject {
+class IntegerDropDownTest : public QObject {
 
     Q_OBJECT
 
@@ -14,18 +13,15 @@ class IntervalDropDownTest : public QObject {
     static const unsigned int DEFAULT_INCREMENT = 1U;
     static const unsigned int PRESET_VALUE = 5U;
 
-    IntegerDropDown *dropDown = new IntegerDropDown("Interval Drop Down",
+    IntegerDropDown *dropDown = new IntegerDropDown("Integer Drop Down",
         DEFAULT_MIN, DEFAULT_MAX, DEFAULT_INCREMENT, PRESET_VALUE, nullptr);
 
 private slots:
-    static void shouldFailIfMinGreaterThanMax();
-    static void shouldFailtIfIntervalDoesNotIncrease();
-    void shouldGenerateValuesRegardingParameters();
-    void shouldBuildValue();
+    void shouldBuildDisplayValue();
 
     void cleanupTestCase() {
         delete this->dropDown;
     }
 };
 
-#endif // INTERVALDROPDOWNTEST_H
+#endif // INTEGERDROPDOWNTEST_H

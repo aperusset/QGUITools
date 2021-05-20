@@ -20,11 +20,15 @@ private slots:
     }
 
     void getLabelShouldReturnLabelWithDefaultTextAndSuffix();
-    void setLabelShouldSetTheLabelTextWithSuffix();
+    void setLabelTextShouldSetTrimmedTextWithSuffix();
+    void setLabelTextShouldFailIfBlank();
     void enableShouldEnableLabelAndWidget();
     void disableShouldDisableLabelAndWidget();
     void setEnabledToTrueShouldEnable();
     void setEnabledToFalseShouldDisable();
+    void isValidShouldReturnTrueByDefault();
+    void validateShouldUseValidColorIfValid();
+    void validateShouldUseInvalidColorIfInvalid();
     void focusShouldGiveFocusToWidget();
     void addToShouldAddLabelAndWidgetToFormLayout();
 

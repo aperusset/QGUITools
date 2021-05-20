@@ -1,18 +1,23 @@
 #ifndef INTERVALDROPDOWN_H
 #define INTERVALDROPDOWN_H
 
-#include "dropdown.h"
+#include <algorithm>
+#include <string>
+#include <map>
+#include <utility>
+#include "forms/dropdown/dropdown.h"
 
 template<typename T>
 class IntervalDropDown : public DropDown {
-
     const T min;
     const T max;
     const T increment;
 
-public:
-    IntervalDropDown(const QString &labelText, T min, T max, T increment, QWidget *parent) :
-        DropDown(labelText, parent), min(std::move(min)), max(std::move(max)), increment(std::move(increment)) {
+ public:
+    IntervalDropDown(const QString &labelText, T min, T max, T increment,
+                     QWidget *parent) :
+        DropDown(labelText, parent), min(std::move(min)), max(std::move(max)),
+        increment(std::move(increment)) {
         if (this->min > this->max) {
             throw std::string("min must be lower or equals to max.");
         }
@@ -27,8 +32,10 @@ public:
 
     auto data() -> std::map<QVariant, QString> override {
         std::map<QVariant, QString> values;
-        for (auto value = this->min; value <= this->max; value += this->increment) {
-            values.insert(std::make_pair(buildValue(value), buildDisplayValue(value)));
+        for (auto value = this->min; value <= this->max;
+             value += this->increment) {
+            values.insert(
+                std::make_pair(buildValue(value), buildDisplayValue(value)));
         }
         return values;
     }
@@ -40,4 +47,4 @@ public:
     virtual auto buildDisplayValue(const T value) const -> QString = 0;
 };
 
-#endif // INTERVALDROPDOWN_H
+#endif  // INTERVALDROPDOWN_H

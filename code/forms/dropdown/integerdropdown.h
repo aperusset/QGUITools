@@ -1,14 +1,14 @@
 #ifndef INTEGERDROPDOWN_H
 #define INTEGERDROPDOWN_H
 
-#include "intervaldropdown.h"
+#include "forms/dropdown/intervaldropdown.h"
 
 class IntegerDropDown : public IntervalDropDown<int> {
-
-public:
+ public:
     IntegerDropDown(const QString &labelText, const int min, const int max,
-                    const int increment, const int defaultValue, QWidget *parent);
+                    const int increment, const int defaultValue,
+                    QWidget *parent);
     auto buildDisplayValue(const int value) const -> QString override;
 };
 
-#endif // INTEGERDROPDOWN_H
+#endif  // INTEGERDROPDOWN_H

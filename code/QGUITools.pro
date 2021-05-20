@@ -14,7 +14,10 @@ SOURCES += \
     forms/dropdown/dropdown.cpp \
     forms/dropdown/integerdropdown.cpp \
     forms/qguiform.cpp \
-    forms/text/text.cpp \
+    forms/text/singlelinetext.cpp \
+    forms/validator/decimalvalidator.cpp \
+    forms/validator/integervalidator.cpp \
+    forms/validator/validator.cpp \
     qguicontainer.cpp \
     tabs/qguitab.cpp \
     windows/qguiwindow.cpp
@@ -25,7 +28,10 @@ HEADERS += \
     forms/dropdown/integerdropdown.h \
     forms/dropdown/intervaldropdown.h \
     forms/qguiform.h \
-    forms/text/text.h \
+    forms/text/singlelinetext.h \
+    forms/validator/decimalvalidator.h \
+    forms/validator/integervalidator.h \
+    forms/validator/validator.h \
     qguicontainer.h \
     tabs/qguitab.h \
     windows/qguiwindow.h

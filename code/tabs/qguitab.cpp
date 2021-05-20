@@ -1,12 +1,13 @@
-#include "qguitab.h"
+#include "tabs/qguitab.h"
+#include <utility>
 
 QGUITab::QGUITab(const unsigned int id, const QString &title, QWidget *parent) :
     QGUITab(id, UNIQUE_INSTANCE_ID, title, parent) {}
 
-QGUITab::QGUITab(const unsigned int id, const unsigned int instanceId, QString title, QWidget *parent):
-    QGUIContainer(id, parent), title(std::move(title)), instanceId(instanceId), modified(false) {
-
-}
+QGUITab::QGUITab(const unsigned int id, const unsigned int instanceId,
+                 QString title, QWidget *parent):
+    QGUIContainer(id, parent), title(std::move(title)), instanceId(instanceId),
+    modified(false) {}
 
 auto QGUITab::getTitle() const -> QString {
     return this->title;

@@ -5,17 +5,16 @@
 #include <QString>
 
 class QGUIContainer : public QWidget {
-
     Q_OBJECT
 
     const unsigned int id;
 
-public:
+ public:
     QGUIContainer(const unsigned int id, QWidget *parent);
     auto getId() const -> unsigned int;
     virtual auto getTitle() const -> QString = 0;
 
-public slots:
+ public slots:
     virtual void wait();
     virtual void finished();
     virtual void notify();
@@ -25,9 +24,9 @@ public slots:
     virtual void reset() = 0;
     virtual void updateButtons() = 0;
 
-signals:
+ signals:
     void hasChanged(const unsigned int);
     void newMessage(const QString&);
 };
 
-#endif // QGUICONTAINER_H
+#endif  // QGUICONTAINER_H

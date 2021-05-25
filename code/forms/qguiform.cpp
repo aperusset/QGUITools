@@ -47,6 +47,10 @@ auto QGUIForm::isEnabled() const -> bool {
     return this->getWidget()->isEnabled();
 }
 
+auto QGUIForm::isModified() const -> bool {
+    return false;
+}
+
 auto QGUIForm::isValid() const -> bool {
     return true;
 }

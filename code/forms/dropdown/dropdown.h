@@ -9,6 +9,8 @@
 
 class DropDown : public QGUIForm {
     QComboBox *comboBox;
+    QVariant originalData;
+    bool modified;
 
  public:
     DropDown(const QString &labelText, QWidget *parent);
@@ -18,8 +20,9 @@ class DropDown : public QGUIForm {
     auto getData() const -> T {
         return this->comboBox->currentData().value<T>();
     }
-    void setData(const QVariant&);
+    auto setData(const QVariant&) -> bool;
     virtual void populate();
+    auto isModified() const -> bool override;
     auto getWidget() const -> QWidget* override;
 
     virtual auto data() -> std::map<QVariant, QString> = 0;

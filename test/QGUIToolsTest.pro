@@ -21,6 +21,9 @@ HEADERS += \
     forms/text/singlelinetexttest.h \
     forms/validator/decimalvalidatortest.h \
     forms/validator/integervalidatortest.h \
+    forms/validator/mailvalidatortest.h \
+    forms/validator/phonevalidatortest.h \
+    forms/validator/textvalidatortest.h \
     forms/validator/validatortest.h \
     qguicontainertest.h
 
@@ -33,6 +36,9 @@ SOURCES += \
     forms/text/singlelinetexttest.cpp \
     forms/validator/decimalvalidatortest.cpp \
     forms/validator/integervalidatortest.cpp \
+    forms/validator/mailvalidatortest.cpp \
+    forms/validator/phonevalidatortest.cpp \
+    forms/validator/textvalidatortest.cpp \
     forms/validator/validatortest.cpp \
     main.cpp \
     qguicontainertest.cpp

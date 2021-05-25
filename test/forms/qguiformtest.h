@@ -26,6 +26,7 @@ private slots:
     void disableShouldDisableLabelAndWidget();
     void setEnabledToTrueShouldEnable();
     void setEnabledToFalseShouldDisable();
+    void isModifiedShouldReturnFalseByDefault();
     void isValidShouldReturnTrueByDefault();
     void validateShouldUseValidColorIfValid();
     void validateShouldUseInvalidColorIfInvalid();

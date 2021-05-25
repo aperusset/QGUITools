@@ -55,7 +55,7 @@ void DropDownTest::setDataShouldDoNothingIfDataIsNotKnown() {
     QCOMPARE(this->testDropDown->getData<int>(), selectedValue);
 }
 
-void DropDownTest::setDataShouldUpdateSelectedDataAndEmitHasChangedSignal() {
+void DropDownTest::setDataShouldUpdateSelectedDataEmitHasChangedSignalAndSetModifiedToFalse() {
 
     // Given
     QSignalSpy spyHasChanged(this->testDropDown, SIGNAL(hasChanged()));
@@ -70,23 +70,26 @@ void DropDownTest::setDataShouldUpdateSelectedDataAndEmitHasChangedSignal() {
     QCOMPARE(this->testDropDown->getData<int>(), selectedValue);
     QCOMPARE(spyHasChanged.count(), 1);
     QCOMPARE(spyUserHasChanged.count(), 0);
+    QVERIFY(!this->testDropDown->isModified());
 }
 
-void DropDownTest::populateShouldNotResetSelectedDataIfAlwaysPresent() {
+void DropDownTest::populateShouldNotResetSelectedDataIfAlwaysPresentAndKeepModifiedStatus() {
 
     // Given
     auto const selectedValue = 2;
     this->testDropDown->setRealData({{1, "test"}, {selectedValue, "test2"}});
-    this->testDropDown->setData(selectedValue);
+    auto *const comboBox = dynamic_cast<QComboBox*>(this->testDropDown->getWidget());
 
     // When
+    comboBox->setCurrentIndex(comboBox->findData(selectedValue));
     this->testDropDown->setRealData({{selectedValue, "test2"}});
 
     // Then
     QCOMPARE(this->testDropDown->getData<int>(), selectedValue);
+    QVERIFY(this->testDropDown->isModified());
 }
 
-void DropDownTest::populateShouldResetSelectedDataToFirstIfSelectedIsInvalid() {
+void DropDownTest::populateShouldResetSelectedDataToFirstAndModifiedToTrueIfSelectedIsInvalid() {
 
     // Given
     auto const firstValue = 1;
@@ -99,6 +102,7 @@ void DropDownTest::populateShouldResetSelectedDataToFirstIfSelectedIsInvalid() {
 
     // Then
     QCOMPARE(this->testDropDown->getData<int>(), firstValue);
+    QVERIFY(this->testDropDown->isModified());
 }
 
 void DropDownTest::populateShouldSortDataBasedOnValue() {
@@ -107,11 +111,24 @@ void DropDownTest::populateShouldSortDataBasedOnValue() {
     auto const firstElement = 0;
     auto const secondElement = 1;
     this->testDropDown->setRealData({{secondElement, "zzz"}, {firstElement, "aaa"}});
-
-    // When
+    this->testDropDown->setData(firstElement);
     auto *const comboBox = dynamic_cast<QComboBox*>(this->testDropDown->getWidget());
 
-    // Then
+    // When / Then
     QCOMPARE(comboBox->findData(firstElement), 0);
     QCOMPARE(comboBox->findData(secondElement), 1);
+    QVERIFY(!this->testDropDown->isModified());
+}
+
+void DropDownTest::userChangeShouldSetModifiedToTrue() {
+
+    // Given
+    this->testDropDown->setRealData({{0, "zzz"}, {1, "aaa"}});
+    auto *const comboBox = dynamic_cast<QComboBox*>(this->testDropDown->getWidget());
+
+    // When
+    comboBox->setCurrentIndex(1);
+
+    // Then
+    QVERIFY(this->testDropDown->isModified());
 }

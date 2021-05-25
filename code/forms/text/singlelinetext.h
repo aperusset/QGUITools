@@ -24,11 +24,11 @@ class SingleLineText : public QGUIForm {
     void setWidth(const int);
     void setEchoMode(const QLineEdit::EchoMode);
 
+    auto isModified() const -> bool override;
     auto isValid() const -> bool override;
     auto getWidget() const -> QWidget* override;
 
     static const int DEFAULT_FIELD_WIDTH = 150U;
-    static const QString DEFAULT_REGULAR_EXPRESSION;
 
     // TODO to be implemented as subclasses : Integer / Decimal / Mail / Phone
     // TODO questionnable : QGUIDate (or/and a calendar widget ?)

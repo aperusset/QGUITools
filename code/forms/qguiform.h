@@ -20,6 +20,7 @@ class QGUIForm : public QWidget {
     virtual void disable();
     virtual void setEnabled(const bool);
     virtual auto isEnabled() const -> bool;
+    virtual auto isModified() const -> bool;
     virtual auto isValid() const -> bool;
     virtual void validate();
     virtual void focus() const;

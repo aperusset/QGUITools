@@ -12,6 +12,9 @@
 #include "forms/validator/validatortest.h"
 #include "forms/validator/decimalvalidatortest.h"
 #include "forms/validator/integervalidatortest.h"
+#include "forms/validator/mailvalidatortest.h"
+#include "forms/validator/phonevalidatortest.h"
+#include "forms/validator/textvalidatortest.h"
 #include "forms/text/singlelinetexttest.h"
 
 auto main(int argc, char *argv[]) -> int {
@@ -28,6 +31,9 @@ auto main(int argc, char *argv[]) -> int {
         std::make_shared<ValidatorTest>(),
         std::make_shared<DecimalValidatorTest>(),
         std::make_shared<IntegerValidatorTest>(),
+        std::make_shared<MailValidatorTest>(),
+        std::make_shared<PhoneValidatorTest>(),
+        std::make_shared<TextValidatorTest>(),
         std::make_shared<SingleLineTextTest>()
     };
 

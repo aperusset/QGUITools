@@ -1,13 +1,11 @@
 #include "forms/text/singlelinetext.h"
 #include <QRegularExpressionValidator>
 #include <string>
-
-const QString SingleLineText::DEFAULT_REGULAR_EXPRESSION = R"(.+)";
+#include "forms/validator/textvalidator.h"
 
 SingleLineText::SingleLineText(const QString &labelText, const bool mandatory,
                                QWidget *parent) :
-    SingleLineText(labelText,
-        new Validator(mandatory, DEFAULT_REGULAR_EXPRESSION), parent) {}
+    SingleLineText(labelText, new TextValidator(mandatory), parent) {}
 
 SingleLineText::SingleLineText(const QString &labelText,
                                const Validator *validator, QWidget *parent) :
@@ -16,7 +14,6 @@ SingleLineText::SingleLineText(const QString &labelText,
     if (validator == nullptr) {
         throw std::string("A validator must be provided.");
     }
-
     this->setWidth(DEFAULT_FIELD_WIDTH);
     this->lineEdit->setValidator(new QRegularExpressionValidator(
         this->validator->getRegularExpression(), this->lineEdit));
@@ -69,8 +66,13 @@ void SingleLineText::setEchoMode(const QLineEdit::EchoMode echoMode) {
     this->lineEdit->setEchoMode(echoMode);
 }
 
+auto SingleLineText::isModified() const -> bool {
+    return this->lineEdit->isModified();
+}
+
 auto SingleLineText::isValid() const -> bool {
-    return this->validator->isValid(this->getText());
+    return this->lineEdit->hasAcceptableInput() &&
+           this->validator->isValid(this->getText());
 }
 
 auto SingleLineText::getWidget() const -> QWidget* {

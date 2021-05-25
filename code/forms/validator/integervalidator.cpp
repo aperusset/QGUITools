@@ -5,12 +5,12 @@ const QString IntegerValidator::REGULAR_EXPRESSION = R"([-\+]?\d*)";
 IntegerValidator::IntegerValidator(const bool mandatory) :
     Validator(mandatory, REGULAR_EXPRESSION) {}
 
-const IntegerValidator& IntegerValidator::mandatory() {
+auto IntegerValidator::mandatory() -> const IntegerValidator& {
     static IntegerValidator mandatoryIntegerValidator(true);
     return mandatoryIntegerValidator;
 }
 
-const IntegerValidator& IntegerValidator::notMandatory() {
+auto IntegerValidator::notMandatory() -> const IntegerValidator& {
     static IntegerValidator notMandatoryIntegerValidator(false);
     return notMandatoryIntegerValidator;
 }

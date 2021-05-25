@@ -11,8 +11,8 @@ class DecimalValidator : public Validator {
 
  public:
     static const QString REGULAR_EXPRESSION;
-    static const DecimalValidator& mandatory();
-    static const DecimalValidator& notMandatory();
+    static auto mandatory() -> const DecimalValidator&;
+    static auto notMandatory() -> const DecimalValidator&;
 };
 
 #endif  // DECIMALVALIDATOR_H

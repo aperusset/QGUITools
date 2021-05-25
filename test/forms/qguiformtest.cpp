@@ -79,6 +79,12 @@ void QGUIFormTest::setEnabledToFalseShouldDisable() {
     QVERIFY(!this->testForm->isEnabled());
 }
 
+void QGUIFormTest::isModifiedShouldReturnFalseByDefault() {
+
+    // Given / When / Then
+    QVERIFY(!this->testForm->isModified());
+}
+
 void QGUIFormTest::isValidShouldReturnTrueByDefault() {
 
     // Given / When / Then

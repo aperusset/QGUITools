@@ -26,7 +26,7 @@ void SingleLineTextTest::shouldSetValidatorAndWidthToDefault() {
     QCOMPARE(validator.isMandatory(), expectedMandatory);
     QCOMPARE(
         validator.getRegularExpression().pattern(),
-        QRegularExpression::anchoredPattern(SingleLineText::DEFAULT_REGULAR_EXPRESSION)
+        QRegularExpression::anchoredPattern(R"(.+)")
     );
 }
 

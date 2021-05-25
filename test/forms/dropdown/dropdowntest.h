@@ -15,10 +15,11 @@ private slots:
     void getDataShouldReturnCurrentData();
     void setDataShouldDoNothingIfDataIsInvalid();
     void setDataShouldDoNothingIfDataIsNotKnown();
-    void setDataShouldUpdateSelectedDataAndEmitHasChangedSignal();
-    void populateShouldNotResetSelectedDataIfAlwaysPresent();
-    void populateShouldResetSelectedDataToFirstIfSelectedIsInvalid();
+    void setDataShouldUpdateSelectedDataEmitHasChangedSignalAndSetModifiedToFalse();
+    void populateShouldNotResetSelectedDataIfAlwaysPresentAndKeepModifiedStatus();
+    void populateShouldResetSelectedDataToFirstAndModifiedToTrueIfSelectedIsInvalid();
     void populateShouldSortDataBasedOnValue();
+    void userChangeShouldSetModifiedToTrue();
 
     void initTestCase() {
         this->testDropDown = new TestDropDown("Drop Down");

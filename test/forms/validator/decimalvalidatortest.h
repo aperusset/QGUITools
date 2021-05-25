@@ -5,7 +5,6 @@
 #include "forms/validator/decimalvalidator.h"
 
 class DecimalValidatorTest : public QObject {
-
     Q_OBJECT
 
     const DecimalValidator &validator = DecimalValidator::mandatory();

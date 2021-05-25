@@ -22,7 +22,7 @@ class Validator {
     virtual ~Validator();
 
     auto isMandatory() const -> bool;
-    auto getRegularExpression() const -> const QRegularExpression&;
+    virtual auto getRegularExpression() const -> const QRegularExpression&;
     virtual auto isValid(const QString&) const -> bool;
 
     static const QColor VALID_COLOR;

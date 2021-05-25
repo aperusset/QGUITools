@@ -5,12 +5,12 @@ const QString DecimalValidator::REGULAR_EXPRESSION = R"([-\+]?\d*(\.\d*)?)";
 DecimalValidator::DecimalValidator(const bool mandatory) :
     Validator(mandatory, REGULAR_EXPRESSION) {}
 
-const DecimalValidator& DecimalValidator::mandatory() {
+auto DecimalValidator::mandatory() -> const DecimalValidator& {
     static DecimalValidator mandatoryDecimalValidator(true);
     return mandatoryDecimalValidator;
 }
 
-const DecimalValidator& DecimalValidator::notMandatory() {
+auto DecimalValidator::notMandatory() -> const DecimalValidator& {
     static DecimalValidator notMandatoryDecimalValidator(false);
     return notMandatoryDecimalValidator;
 }

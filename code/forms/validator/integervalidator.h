@@ -11,8 +11,8 @@ class IntegerValidator : public Validator {
 
  public:
     static const QString REGULAR_EXPRESSION;
-    static const IntegerValidator& mandatory();
-    static const IntegerValidator& notMandatory();
+    static auto mandatory() -> const IntegerValidator&;
+    static auto notMandatory() -> const IntegerValidator&;
 };
 
 #endif  // INTEGERVALIDATOR_H
